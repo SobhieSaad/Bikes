@@ -1,0 +1,23 @@
+﻿@model BikesShop.Models.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>Delete Product</h2></center>
+
+<h3 style="margin-left:200px">Are you sure you want to delete product ( @Model.Name) ?</h3>
+<div style="margin-left:300px">
+    @using (Html.BeginForm("DeleteProduct","Home",FormMethod.Post, new { Id = Model.Id })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" name="Command" title="Delete" class="btn btn-danger" /> 
+            <input type="submit" value="Cancel" name="Command" title="Cancel" class="btn btn-danger" />
+        </div>
+    }
+</div>
+
+<br />
+<br />

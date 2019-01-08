@@ -1,0 +1,20 @@
+﻿@model IEnumerable<BikesShop.Models.Product>
+<div class="rides">
+    <div class="container">
+        <div class="agileits-w3layouts-rides-grids">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 rides-grid">
+                    <div class="rides-grid-info">
+                        <a href="@Url.Action("Details","Store", new { Id = item.Id })">
+                            <img src="~/images/@item.ImageName" alt="" style="width:400px;height:400px" title="" />
+                            <h4 style="text-align:center">@item.Name</h4>
+                        </a>
+                        <p>@item.Brief</p>
+                    </div>
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+</div>
+</div>

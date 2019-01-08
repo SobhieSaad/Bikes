@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BikesShop.Models.Product>
+
+    <!-- services -->
+    <div class="services">
+        <div class="container">
+            <div class="w3layouts-services-heading">
+                <h2>Our Services</h2>
+            </div>
+            <div class="w3-services-grids">
+                <div class="col-md-6 w3l-services-grid">
+                    <div class="w3ls-services-img">
+                        <i class="fa fa-male" aria-hidden="true" ></i>
+                    </div>
+                    <div class="agileits-services-info">
+                        <h4>@Html.ActionLink("Sign Up", "Register", "Account")</h4>
+                        <p>Sign up in our website and enjoy in our Bike Online Shop</p>
+                    </div>
+                </div>
+                <div class="col-md-6 w3l-services-grid">
+                    <div class="w3ls-services-img">
+                        <i class="fa fa-bicycle" aria-hidden="true"></i>
+                    </div>
+                    <div class="agileits-services-info">
+                        <h4>@Html.ActionLink("Our Products", "AllProducts","Home")</h4>
+                        <p>Our online shop has all Bikes equipments that you need</p>
+                    </div>
+                </div>
+             
+                
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //services -->
+
+    <!-- rides -->
+    <div class="rides">
+        <div class="container">
+            <div class="w3-agileits-rides-heading">
+                <h3>Top Sales</h3>
+            </div>
+            <div class="agileits-w3layouts-rides-grids">
+                @foreach (var item in Model)
+                {
+                <div class="col-sm-4 rides-grid">
+                    <div class="rides-grid-info">
+                        <a href="@Url.Action("Details","Store", new { Id = item.Id })">
+                            <img src="~/images/@item.ImageName" alt="" style="width:400px;height:400px" title=""/>
+                            <h4 style="text-align:center">@item.Name</h4>
+                        </a>
+                        <p>@item.Brief</p>
+                    </div>
+                </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //rides -->

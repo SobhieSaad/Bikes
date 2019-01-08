@@ -1,0 +1,19 @@
+﻿@model BikesShop.Models.Product
+@{
+    ViewBag.Title = "Browse Products";
+}
+
+<div class="genre">
+    <h3><em>@Model.Name</em></h3>
+
+    <ul id="product-list">
+        @foreach(var v in Model.Products)
+        {
+            <li>
+                <a href="@Url.Action("Details",new {id= v.Id})"></a>
+                <img alt="@v.Name" src="@v.ImageName "/>
+                <span>@v.Name</span>
+            </li> 
+        }
+    </ul>
+</div>

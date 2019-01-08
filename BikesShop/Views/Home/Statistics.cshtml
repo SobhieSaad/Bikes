@@ -1,0 +1,48 @@
+﻿@model BikesShop.Models.DateReviewer
+
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<center><h2>Statistics</h2></center>
+<center>
+    <div class="row" style="margin-top:auto">
+        @using (Html.BeginForm("AdminReports", "Home"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  
+                        <div class="row col-md-10">
+
+                            <input type="submit" value="Produce Report" name="Command1" title="Produce" class="btn btn-primary" />
+                            <input type="submit" value="Draw Chart" name="Command1" title="Draw" class="btn btn-success" />
+                            <input type="submit" value="Cancel" name="Command1" title="Cancel" class="btn btn-danger" />
+                        </div>
+                 
+                </div>
+            </div>
+        }
+    </div>
+
+</center>

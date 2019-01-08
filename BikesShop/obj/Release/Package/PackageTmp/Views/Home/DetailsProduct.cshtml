@@ -1,0 +1,57 @@
+﻿@model BikesShop.Models.Product
+
+@{
+    ViewBag.Title = "DetailsProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>Product Details</h2></center>
+  <center>--------------------------------------------</center>
+    <center class="form-horizontal table-striped" style="background-color:aqua; margin-left:40px">
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+
+                <dt style="margin-left:300px">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt style="margin-left:300px">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
+
+                <dt style="margin-left:300px">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt style="margin-left:300px">
+                    @Html.DisplayNameFor(model => model.ImageName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImageName)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @using (Html.BeginForm("ShowProducts", "Home"))
+            {
+                <input type="submit" value="Back to Products" name="Command1" title="Cancel" class="btn btn-success" />
+            }
+
+
+        </p>
+    </center>

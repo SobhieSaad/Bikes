@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9515904179940939a2bb6df5d9cea3c" Name="Diagram1">
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.Cart" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.CustomersComment" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.Order" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.OrdersDetail" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.Product" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BikesOnlineShopDBModel.ProductRate" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK_Cart_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK__Orders__Customer__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK_CustomersComments_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK_ProductRate_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK_CustomersComments_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.OrdersDetails_FK00" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK__OrdersDet__Produ__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="BikesOnlineShopDBModel.FK_ProductRate_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

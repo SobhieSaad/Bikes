@@ -1,0 +1,119 @@
+﻿@model BikesShop.Models.Product
+@{
+    ViewBag.Title = "Product:" + Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <h2>@Model.Name</h2>
+    <br />
+    <p>
+        <img src="@Url.Content("~/images/" + Model.ImageName)" alt="" style="width:600px; height:450px"/>
+    </p>
+</center>
+<br />
+<p class="text-danger">@ViewBag.NotLog</p>
+<div id="product-details" style="margin-left:150px">
+
+    <div class="col-md-12">
+        <p>
+            <h4 style="text-decoration:underline;font-style:italic">Name:</h4>
+            @Model.Name
+        </p>
+        <p>
+            <h4 style="text-decoration:underline;font-style:italic">Price:</h4>
+            @Model.Price
+        </p>
+        <p>
+        @*<p>
+           
+            <h4 style="text-decoration:underline;font-style:italic">Product Rate Average: </h4>
+      
+              @for (int properity = (Int32)@ViewData["Average"] ; properity > 0 ; properity--)
+              {
+                <span class="fa fa-star" style="color:#FFCC00"></span>
+
+
+              }
+            @for (int properity = 5-(Int32)@ViewData["Average"]; properity > 0; properity--)
+            {
+                <span class="fa  fa-star-o" style="color:#9A9379"></span>
+
+
+            }
+        </p>*@
+        <p>
+            <h4 style="text-decoration:underline;font-style:italic">Brief:</h4>
+            @Model.Brief
+        </p>
+        <div class="row">
+            <div class="w3_leave_comment">
+
+                <div class="col-md-2">
+
+                    <div>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            using (Html.BeginForm("AddToCart", "ShoppingCart", new { Id = Model.Id }))
+                            {
+                                <input type="submit" value="Add To Cart" title="@Model.Id" name="Command1" id="@Model.Id" class="btn btn-success" />
+
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <br />
+            
+            <div class="col-md-2">
+
+                @*@if (User.Identity.IsAuthenticated)
+                {
+                    if (Model.ProductRates.Count > 0)
+                    {
+                        if (!Model.ProductRates.FirstOrDefault().CustomerId.Equals(null) || !Model.ProductRates.FirstOrDefault().CustomerId.Equals(0))
+
+                        {
+                            <p>Your Old Rate Was: (@ViewData["OldRate"])</p>
+
+                            for (int properity = (Int32)@ViewData["OldRate"]; properity > 0; properity--)
+                            {
+                                <span class="fa fa-star" style="color:#FFCC00"></span>
+
+
+                            }
+                            for (int properity = 5 - (Int32)@ViewData["OldRate"]; properity > 0; properity--)
+                            {
+                                <span class="fa fa-star-o" style="color:#9A9379"></span>
+
+
+                            }
+                        }
+                    }
+                    using (Html.BeginForm("AddRate", "Store", new { Id = Model.Id }, FormMethod.Post))
+                    {
+                        @Html.EditorFor(mod => mod.ProductCommentRate.ProductRate.Rate, new { htmlAttributes = new { @class = "form-control" } })
+                        <br />  <input type="submit" value="Add Rate" title="@Model.Id" name="Command1" id="@Model.Id" class="btn btn-success" />
+
+                    }
+                }*@
+            </div>
+        </div>
+        <br />
+       
+    
+    </div>
+    
+    <br />
+   
+      
+    &nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+<br />

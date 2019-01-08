@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bikes Online Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
+    @Styles.Render("~/css/Bikecss")
+    @Scripts.Render("~/bundles/BikesJQuery")
+
+    <script type='text/javascript'>
+    function validate() {
+        var yourValue = $("#searchTb").val();
+        if ($.trim(yourValue).length <= 0) {
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+
+</head>
+<body>
+
+    @{
+        var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+        var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+        if (controller == "Home" && action == "Index")
+        {
+            <div class="banner">
+
+                <div class="w3ls-slider">
+                    <div class="header-top">
+                        <div class="container banner-drop">
+                            <div class="agile-logo">
+                                <h1><a href="">Bike<span>Shop</span></a></h1>
+                            </div>
+                            <div class="header-right">
+                                <nav style="left:0%">
+                                    <ul>
+                                        <li class="active">
+                                            @Html.ActionLink("Home", "AdminIndex", "Home")
+                                        </li>
+                                        <li>
+                                            @Html.ActionLink("About", "About", "Home")
+                                        </li>
+
+                                        @Html.Partial("_LoginPartial")
+
+                                    </ul>
+                                </nav>
+                                <div class="menu-icon"><span></span></div>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <script>
+						(function($){
+						  $(".menu-icon").on("click", function(){
+								$(this).toggleClass("open");
+								$(".container").toggleClass("nav-open");
+								$("nav ul li").toggleClass("animate");
+						  });
+
+						})(jQuery);
+                            </script>
+                        </div>
+                    </div>
+                    <div class="page-header__content">
+                        <div class="text-bg">
+                            <svg>
+                                <defs>
+                                    <mask id="mask" x="0" y="0" width="100%" height="100%">
+                                        <rect id="alpha" x="0" y="0" width="100%" height="100%" />
+                                        <text id="title1" x="50%" y="30%" dy="1em" letter-spacing="0.02em">Bike Shop</text>
+                                    </mask>
+                                    <mask id="mask-2" x="0" y="0" width="100%" height="100%">
+                                        <rect id="alpha-2" x="-66%" y="0" width="85%" height="100%" transform="skewX(40)" />
+                                        <text id="title2" x="50%" y="30%" dy="1em" letter-spacing="0.02em">Bike Shop</text>
+                                    </mask>
+                                    <mask id="mask-3" x="0" y="0" width="100%" height="100%">
+                                        <rect id="alpha-3" x="-66%" y="0" width="70%" height="100%" transform="skewX(40)" />
+                                        <text id="title3" x="50%" y="30%" dy="1em" letter-spacing="0.02em">Bike Shop</text>
+                                    </mask>
+                                </defs>
+                                <rect id="base" x="0" y="0" width="100%" height="100%" mask="url(#mask)" />
+                                <rect id="base-3" x="0" y="0" width="100%" height="100%" mask="url(#mask-2)" />
+                                <rect id="base-4" x="0" y="0" width="100%" height="100%" mask="url(#mask-3)" />
+                                <text id="title4" x="50%" y="30%" dy="1em" letter-spacing="0.02em">Bike Shop</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-grids">
+                    <div class="container">
+                        <div class="agileinfo-social-grids">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        else
+        {
+            <div class="banner bg-about">
+                <div class="header-top about-header-top">
+                    <div class="container banner-drop">
+                        <div class="agile-logo">
+                            <h1><a href="index.html">Bikes<span>Shop</span></a></h1>
+                        </div>
+                        <div class="header-right">
+                            <nav style="left:0%">
+                                <ul>
+                                    <li class="active">
+                                        @Html.ActionLink("Home", "AdminIndex", "Home")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("About", "About", "Home")
+                                    </li>
+
+                                    @Html.Partial("_LoginPartial")
+
+                                </ul>
+                            </nav>
+
+                            <div class="menu-icon"><span></span></div>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <script>
+					(function($){
+					  $(".menu-icon").on("click", function(){
+							$(this).toggleClass("open");
+							$(".container").toggleClass("nav-open");
+							$("nav ul li").toggleClass("animate");
+					  });
+
+					})(jQuery);
+                        </script>
+                    </div>
+                </div>
+                <div class="w3ls-heading">
+                    <h2></h2>
+                </div>
+            </div>
+        }
+    }
+
+    @RenderBody()
+    @RenderSection("custom", required: false)
+
+    <div class="footer">
+        <div class="container">
+            <div class="agile-footer-grids">
+                <div class="col-md-3 w3-agile-footer-grid">
+                    <h3>About</h3>
+                    <p>Explain About Our Project</p>
+                </div>
+                <div class="col-md-3 w3-agile-footer-grid">
+                    <h3>Supervised By</h3>
+                    <ul>
+                        <li><a href="#">Dr.Basel AlKhatib</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 w3-agile-footer-grid">
+                    <h3>Students</h3>
+                    <ul>
+                        <li>Anna_94347<a href="mailto:Anna_94347@svuonline.org">Anna Adjemian</a></li>
+                        <li>Antoun_94838<a href="mailto:Antoun_94838@svuonline.org">Antoun Aunini</a></li>
+                        <li>Mohanad_98705<a href="mailto:Mohanad_98705@svuonline.org">Mohanad Nader</a></li>
+                        <li>Sobhie_94188<a href="mailto:Sobhie_94188@svuonline.org">Sbohie Saad</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3 w3-agile-footer-grid">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li class="text"><a href="index.html">Home</a></li>
+                        <li class="text"><a href="about.html">About</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p>© @DateTime.Now.Year Bikes Online Shop . All Rights Reserved | AWP Project </p>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

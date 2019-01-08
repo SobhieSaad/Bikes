@@ -1,0 +1,65 @@
+﻿@model BikesShop.Models.DateReviewer
+
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+
+<div class="row">
+     <div class="col-md-3" style="margin-left:90px">
+         <br />
+        <p>You can easly add new product <br />  just bye ntering it's properities</p>
+            @using (Html.BeginForm("CrerateProduct", "Home"))
+            {
+                <input type="submit" value="Add New Product" name="Command" title="Add New Product" class="btn btn-primary btn-group-lg" />
+            }
+     </div>
+     <div class="col-md-3">
+         <br />
+        <p style="overflow-wrap:break-word">You can show All products and do features on them by clicking below</p>
+        @using (Html.BeginForm("ShowProducts", "Home"))
+        {
+        <input type="submit" value="Show Products" name="Command" title="Show Products" class="btn btn-primary btn-group-lg" />
+        }
+     </div>
+     <div class="col-md-4">
+            @using (Html.BeginForm("ProduceReport", "Home"))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4 style="margin-left:40px">Date Reviewer</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StartDate , htmlAttributes: new { @class = " col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control  " } })
+                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = " col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-4">
+                            <input type="submit" value="Draw Chart" class="btn btn-default btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+
+
+    </div>
